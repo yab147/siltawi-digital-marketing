@@ -671,69 +671,131 @@ section {
   z-index: 2;
 }
 
-/* Premium Visual Elements */
-.hero-shapes {
+/* Orbit Hero Visual System */
+.hero-orbit-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
   max-width: 480px;
-}
-
-.shape-main {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(6, 182, 212, 0.15) 100%);
-  border-radius: 41% 59% 51% 49% / 54% 39% 61% 46%;
-  animation: morphingBlob 12s ease-in-out infinite alternate;
-  border: 1px solid rgba(6, 182, 212, 0.2);
-}
-
-.shape-card-1, .shape-card-2 {
-  position: absolute;
-  background-color: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-lg);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: transform var(--transition-normal);
-}
-
-.shape-card-1 {
-  top: 15%;
-  left: -10%;
+  aspect-ratio: 1;
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  animation: floatShape1 6s ease-in-out infinite;
+  justify-content: center;
 }
 
-.shape-card-2 {
-  bottom: 15%;
-  right: -5%;
-  text-align: center;
-  animation: floatShape2 8s ease-in-out infinite;
+.hero-orbit-center {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-round);
+  background: linear-gradient(135deg, #0D2440 0%, #2E5E99 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 0 40px rgba(46, 94, 153, 0.5), 0 0 80px rgba(46, 94, 153, 0.2);
 }
 
-.shape-card-1:hover, .shape-card-2:hover {
-  transform: translateY(-5px);
+.hero-orbit-ring {
+  position: absolute;
+  border-radius: var(--radius-round);
+  pointer-events: none;
 }
 
-@keyframes morphingBlob {
-  0% { border-radius: 41% 59% 51% 49% / 54% 39% 61% 46%; }
-  50% { border-radius: 53% 47% 38% 62% / 40% 55% 45% 60%; }
-  100% { border-radius: 45% 55% 65% 35% / 65% 30% 70% 35%; }
+.hero-orbit-ring-1 {
+  width: 70%;
+  height: 70%;
 }
 
-@keyframes floatShape1 {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+.hero-orbit-ring-2 {
+  width: 95%;
+  height: 95%;
 }
 
-@keyframes floatShape2 {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(12px); }
+.hero-orbit-ring-visual {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-round);
+  border: 1px dashed rgba(123, 164, 208, 0.35);
+}
+
+.hero-orbit-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 5;
+  cursor: default;
+}
+
+.hero-orbit-node-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  border: 2px solid rgba(255,255,255,0.15);
+}
+
+.hero-orbit-node-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Floating Metric Cards */
+.hero-float-card {
+  position: absolute;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 20;
+  min-width: 130px;
+}
+
+.hero-float-card-1 { top: 5%; left: -8%; }
+.hero-float-card-2 { bottom: 12%; right: -5%; }
+.hero-float-card-3 { bottom: 35%; left: -12%; }
+
+.hero-float-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(46, 94, 153, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--secondary-rgb));
+  flex-shrink: 0;
+}
+
+.hero-float-card-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: rgb(var(--secondary-rgb));
+  line-height: 1;
+}
+
+.hero-float-card-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Statistics Section */
